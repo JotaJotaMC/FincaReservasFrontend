@@ -21,17 +21,19 @@
     <button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
 
 
-    <h1> Bikes</h1>
+    <h1> Fincas</h1>
     <div id="resultado2"></div>
-    <button onclick="traerInformacionBikes()" > Consultar Bikes</button>
+    <button onclick="traerInformacionFarm()" > Consultar Fincas</button>
     
     <div>
         <input type="text" id="Bname" placeholder="name">
-        <input type="text" id="Bbrand" placeholder="brand">
-        <input type="number" id="Byear" placeholder="year">
+        <input type="text" id="Baddress" placeholder="address">
+        <input type="number" id="Bextension" placeholder="extension">
         <input type="text" id="Bdescription" placeholder="description">    
     </div>
-    <button onclick="guardarInformacionBikes()">Guardar Bikes</button>
+    <button onclick="guardarInformacionFarm()">Guardar Fincas</button>
+
+
 
     <h1> Clientes</h1>
     <div id="resultado3"></div>
@@ -44,5 +46,30 @@
         <input type="number" id="CLage" placeholder="age">  
     </div>
     <button onclick="guardarInformacionClientes()">Guardar Clientes</button>
+
+
+    <h1> Mensaje</h1>
+    <div id="resultado4"></div>
+    <button onclick="traerInformacionMensaje()" > Consultar Mensaje</button>
+    
+    <div>
+        <input type="text" id="CLmessageText" placeholder="messageText">
+    </div>
+    <button onclick="guardarInformacionMensaje()">Guardar Mensaje</button>
+
+
+    <h1> Reservacion</h1>
+    <div id="resultado5"></div>
+    <button onclick="traerInformacionReservacion()" > Consultar Reservacion</button>
+    
+    <div>
+        <input type="date" id="CLstartDate" placeholder="startDate">
+        <input type="date" id="CLdevolutionDate" placeholder="devolutionDate">
+        <input type="text" id="CLstatus" placeholder="status">
+
+    </div>
+
+    <button onclick="guardarInformacionReservacion()">Guardar Reservacion</button>
+
 </body>
 </html>
