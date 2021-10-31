@@ -1,77 +1,388 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
-  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/misFunciones.js"></script>
-    <script type="text/javascript" src="js/FnCategoria.js"></script>
-
-    <title>Reto3</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Fincas</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <title>MisionTIC2021</title>
 </head>
-<body>
 
-    <h1> Categorias</h1>
-    <div id="resultado1"></div>
-    <button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
-    
-    <div>
-        <input type="text" id="Cname" placeholder="name">
-        <input type="text" id="Cdescription" placeholder="description">
-       
-        
-    </div>
-    <button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
+<body
+    onload="traerInformacionCategorias(), traerInformacionFarm(), traerInformacionClientes(), traerInformacionMensaje(), traerInformacionReservacion(), traerReporteStatus()">
+
+    <!-- Navegación-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <!-- container1-->
+            <a class="navbar-brand" href="https://www.misiontic2022.gov.co/portal/" target="_blank"><img
+                    src="assets/img/logo-mision.png" width="150%" height="100%" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#categoria">Categoria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#finca">Fincas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mensajes">Mensajes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservacion">Reservación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reportes">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contactanos</a></li>
+                </ul>
+            </div>
+        </div><!-- FIN container1-->
+    </nav>
+
+    <!-- Cabecera-->
+    <header class="masthead">
+        <div class="container">
+            <!-- container2-->
+            <div class="masthead-subheading">VENTA DE FINCAS</div>
+            <div class="masthead-heading text-uppercase">*</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#categoria">Continuar</a>
+        </div><!-- FIN container2-->
+    </header>
+
+    <!-- Sección categoría-->
+    <section class="page-section" id="categoria">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Categorias</h2>
+            <h3 class="section-subheading text-muted">Edicion de datos.</h3>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <form>
+                        <div id="cform">
+                            <div class="form-group col-md-10">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control" name="Cname" id="Cname" placeholder="Nombre">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="description">Descripción</label>
+                                <input type="text" class="form-control" name="Cdescription" id="Cdescription"
+                                    placeholder="Descripción">
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <br>
+                    <button onclick="guardarInformacionCategorias();" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="resultado1"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección finca-->
+    <section class="page-section" id="finca">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Fincas</h2>
+            <h3 class="section-subheading text-muted">Edicion de datos.</h3>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <form>
+                        <div id="cform">
+                            <div class="form-group col-md-10">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control" name="Bname" id="Bname" placeholder="Nombre">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="address">Dirección</label>
+                                <input type="text" class="form-control" name="Baddress" id="Baddress"
+                                    placeholder="Dirección">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="extension">Extensión</label>
+                                <input type="number" class="form-control" name="Bextension" id="Bextension"
+                                    placeholder="Extensión">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="description">Descripción</label>
+                                <input type="text" class="form-control" name="Bdescription" id="Bdescription"
+                                    placeholder="Descripción">
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <br>
+                    <button onclick="guardarInformacionFarm();" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="resultado2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección clientes-->
+    <section class="page-section" id="clientes">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Clientes</h2>
+            <h3 class="section-subheading text-muted">Edicion de datos.</h3>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <form>
+                        <div id="cform">
+                            <div class="form-group col-md-10">
+                                <label for="email">Correo</label>
+                                <input type="email" class="form-control" name="CLemail" id="CLemail"
+                                    placeholder="Correo">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="password">Contraseña</label>
+                                <input type="password" class="form-control" name="CLpassword" id="CLpassword"
+                                    placeholder="Contraseña">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control" name="CLname" id="CLname" placeholder="Nombre">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="age">Edad</label>
+                                <input type="number" class="form-control" name="CLage" id="CLage" placeholder="Edad">
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <br>
+                    <button onclick="guardarInformacionClientes();" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="resultado3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección mensajes-->
+    <section class="page-section" id="mensajes">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Mensaje</h2>
+            <h3 class="section-subheading text-muted">Edicion de datos.</h3>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <form>
+                        <div id="cform">
+                            <div class="form-group col-md-10">
+                                <label for="messageText">Mensaje</label>
+                                <input type="text" class="form-control" name="CLmessageText" id="CLmessageText"
+                                    placeholder="Mensaje">
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <br>
+                    <button onclick="guardarInformacionMensaje();" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="resultado4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservaciones-->
+    <section class="page-section" id="reservacion">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Reservación</h2>
+            <h3 class="section-subheading text-muted">Edicion de datos.</h3>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <form>
+                        <div id="cform">
+                            <div class="form-group col-md-10">
+                                <label for="startDate">Fecha Inicio</label>
+                                <input type="date" class="form-control" name="CLstartDate" id="CLstartDate"
+                                    placeholder="Fecha Inicio">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="CLdevolutionDate">Fecha Final</label>
+                                <input type="date" class="form-control" name="CLdevolutionDate" id="CLdevolutionDate"
+                                    placeholder="Fecha Final">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="status">Estado</label>
+                                <input type="text" class="form-control" name="CLstatus" id="CLstatus"
+                                    placeholder="Estado">
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <br>
+                    <button onclick="guardarInformacionReservacion();" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="resultado5"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reportes-->
+    <section class="page-section" id="reportes">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Reportes</h2>
+            <h3 class="section-subheading text-muted">Edicion de datos.</h3>
+        </div>
+        <div class="container">
+
+            <div class="row justify-content-start">
+                <div class="col-md-3">
+                    <form>
+                        <div id="cform">
+                            <div class="form-group col-md-10">
+                                <label for="starDate">Fecha Inicio</label>
+                                <input type="date" class="form-control" name="RstarDate" id="RstarDate"
+                                    placeholder="Fecha Inicio">
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="devolutionDate">Fecha Final</label>
+                                <input type="date" class="form-control" name="RdevolutionDate" id="RdevolutionDate"
+                                    placeholder="Fecha Final">
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <br>
+                    <button onclick="traerReporteDate();" class="btn btn-primary">Generar Reporte por fecha </button>
+                    <br>
+                    <br>
+                    <br>
+                    <button onclick="traerReporteClientes();" class="btn btn-primary">Generar Reporte Clientes y
+                        Cantidad de reservas por cliente</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                
  
+                <div class="text-center">
+                    <h3 class="section-subheading text-muted">ESTADO</h3>
+                    <div id="resultadoStatus"></div>
+                </div>
+                <hr class="featurette-divider">
+                <div class="text-center">
+                    <h3 class="section-subheading text-muted">REPORTE POR FECHA</h3>
+                    <div id="resultadoDate"></div>
+                </div>
+                <hr class="featurette-divider">
+                <div class="text-center">
+                    <h3 class="section-subheading text-muted">REPORTE POR CLIENTE</h3>
+                    <div id="resultadoClientes"></div>
+                </div>
+                
 
-    <h1> Fincas</h1>
-    <div id="resultado2"></div>
-    <button onclick="traerInformacionFarm()" > Consultar Fincas</button>
-    
-    <div>
-        <input type="text" id="Bname" placeholder="name">
-        <input type="text" id="Baddress" placeholder="address">
-        <input type="number" id="Bextension" placeholder="extension">
-        <input type="text" id="Bdescription" placeholder="description">    
-    </div>
-    <button onclick="guardarInformacionFarm()">Guardar Fincas</button>
+                
+            </div>
+        </div>
+    </section>
 
+    <!-- Contactanos-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contactanos</h2>
+                <h3 class="section-subheading text-muted">Deja tus comentarios.</h3>
+            </div>
 
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Nombre-->
+                            <input class="form-control" id="name" type="text" placeholder="Tu nombre *"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Un nombre es
+                                requerido.</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email-->
+                            <input class="form-control" id="email" type="email" placeholder="Tu E-mail *"
+                                data-sb-validations="required,email" />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">Un E-mail es
+                                requerido.
+                            </div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">E-mail no
+                                valido.</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Telefono-->
+                            <input class="form-control" id="phone" type="tel" placeholder="Tu telefono *"
+                                data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">Un telefono
+                                es requerido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Mensaje-->
+                            <textarea class="form-control" id="message" placeholder="Tu mensaje *"
+                                data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">Un mensaje
+                                es requerido.
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <h1> Clientes</h1>
-    <div id="resultado3"></div>
-    <button onclick="traerInformacionClientes()" > Consultar Clientes</button>
-    
-    <div>
-        <input type="text" id="CLemail" placeholder="email">
-        <input type="text" id="CLpassword" placeholder="password">
-        <input type="text" id="CLname" placeholder="name">
-        <input type="number" id="CLage" placeholder="age">  
-    </div>
-    <button onclick="guardarInformacionClientes()">Guardar Clientes</button>
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3">
+                        <div class="fw-bolder">Enviado correctamente!</div>
 
+                        <br />
+                        <a href="https://gmail.com">john.mogollon.mt@correo.usa.edu.co</a>
+                    </div>
+                </div>
 
-    <h1> Mensaje</h1>
-    <div id="resultado4"></div>
-    <button onclick="traerInformacionMensaje()" > Consultar Mensaje</button>
-    
-    <div>
-        <input type="text" id="CLmessageText" placeholder="messageText">
-    </div>
-    <button onclick="guardarInformacionMensaje()">Guardar Mensaje</button>
+                <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error de envío!</div>
+                </div>
+                <!-- Boton enviar-->
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled"
+                        id="submitButton" type="submit">Enviar</button></div>
+            </form>
+        </div>
+    </section>
 
-
-    <h1> Reservacion</h1>
-    <div id="resultado5"></div>
-    <button onclick="traerInformacionReservacion()" > Consultar Reservacion</button>
-    
-    <div>
-        <input type="date" id="CLstartDate" placeholder="startDate">
-        <input type="date" id="CLdevolutionDate" placeholder="devolutionDate">
-        <input type="text" id="CLstatus" placeholder="status">
-
-    </div>
-
-    <button onclick="guardarInformacionReservacion()">Guardar Reservacion</button>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="fn/fnClientes.js"></script>
+    <script type="text/javascript" src="fn/fnCategoria.js"></script>
+    <script type="text/javascript" src="fn/fnFarm.js"></script>
+    <script type="text/javascript" src="fn/fnMensaje.js"></script>
+    <script type="text/javascript" src="fn/fnReservacion.js"></script>
+    <script type="text/javascript" src="fn/consulta.js"></script>
+    <script type="text/javascript" src="fn/reportes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
+
 </html>
